@@ -25,7 +25,7 @@ class NeuralNet(nn.Module):
         self.fc1 = nn.Linear(input_size, hidden_size)
         self.relu = nn.ReLU()
         self.fc2 = nn.Linear(hidden_size, num_classes)
-    
+
     def forward(self, x):
         x = x.view(-1, self.input_size)  # Flatten the images
         x = self.fc1(x)
@@ -45,7 +45,7 @@ for epoch in range(num_epochs):
 
         outputs = model(images)
         loss = criterion(outputs, labels)
-        
+
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
